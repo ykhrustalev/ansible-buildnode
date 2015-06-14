@@ -1,5 +1,10 @@
 ---
-# defaults file for buildnode
+# under which user infra going to be used
+buildnode_user: '{{ansible_ssh_user}}'
 
 buildnode_python: false
+buildnode_python_wheelhouse: /var/wheelhouse
+
 buildnode_postgresql: false
+
+

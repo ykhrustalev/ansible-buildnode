@@ -24,6 +24,10 @@ To install repos list, define (based on ykhrustalev.basenode role)
     basenode_codename: jessie
     basenode_install_repos: true
 
+Which user going to be infra owner 
+
+    buildnode_user: '{{ansible_ssh_user}}'
+
 
 To install python dependencies
 
@@ -31,7 +35,8 @@ To install python dependencies
 
 To install python dependencies
 
-    buildnode_python: true
+    buildnode_python: false
+    buildnode_python_wheelhouse: /var/wheelhouse
     
 Optional:
 

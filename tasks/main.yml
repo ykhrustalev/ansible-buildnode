@@ -6,7 +6,7 @@
     - apt
     - buildnode
 
-- include: apt_dh_virtualenv.yml
+- include: apt_python.yml
   when: ansible_os_family == 'Debian' and buildnode_python
   tags:
     - apt

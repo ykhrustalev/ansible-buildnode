@@ -28,3 +28,9 @@
   pip: name={{item}} state=latest
   with_items:
     - wheel
+
+- name: make sure wheel house folder exists
+  file: >
+    path={{buildnode_python_wheelhouse}}
+    state=directory
+    owner={{buildnode_user}}
