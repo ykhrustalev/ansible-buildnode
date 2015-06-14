@@ -1,0 +1,25 @@
+---
+- name: Download dh-virtualenv
+  get_url: >
+    url={{buildnode_dh_virtualenv_url}}
+    dest=/tmp/{{buildnode_dh_virtualenv_name}}
+    sha256sum={{buildnode_dh_virtualenv_sha256}}
+  register: buildnode_dh_virtualenv_archive
+
+- name: Install dh-virtualenv
+  apt: deb=/tmp/{{buildnode_dh_virtualenv_name}}
+  when: buildnode_dh_virtualenv_archive|changed
+
+- name: Install dh-virtualenv dependencies package
+  apt: >
+    name={{item}}
+    state=present
+    update_cache=yes
+    cache_valid_time=60
+    install_recommends=no
+  with_items:
+    - libjs-sphinxdoc
+    - python-dev
+    - python-pip
+    - python-virtualenv
+    - virtualenv

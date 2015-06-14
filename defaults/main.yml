@@ -1,0 +1,5 @@
+---
+# defaults file for buildnode
+
+buildnode_python: false
+buildnode_postgresql: false

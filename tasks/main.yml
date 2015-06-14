@@ -1,0 +1,21 @@
+---
+
+- include: apt.yml
+  when: ansible_os_family == 'Debian'
+  tags:
+    - apt
+    - buildnode
+
+- include: apt_dh_virtualenv.yml
+  when: ansible_os_family == 'Debian' and buildnode_python
+  tags:
+    - apt
+    - python
+    - buildnode
+
+- include: apt_postgresql.yml
+  when: ansible_os_family == 'Debian' and buildnode_postgresql
+  tags:
+    - apt
+    - postgresql
+    - buildnode
