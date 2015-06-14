@@ -23,3 +23,8 @@
     - python-pip
     - python-virtualenv
     - virtualenv
+
+- name: Install wheel support
+  pip: name={{item}} state=latest
+  with_items:
+    - wheel
